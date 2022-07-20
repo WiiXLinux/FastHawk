@@ -2,21 +2,17 @@ package bin;
 
 import lib.Cell;
 
-import lib.cells.ConwayCell;
 import lib.cells.Conway_ALIVE;
 import lib.cells.Conway_DEAD;
+import lib.utils.RandomCellGenerator;
 
+import static lib.cells.ConwayCell.c1REF;
+import static lib.cells.ConwayCell.c2REF;
 
+@Deprecated
 public class TEST {
 
-    private static Cell[][] copy(Cell[][]in){
-        Cell[][] temp = new Cell[in.length][in[0].length];
-        for (int i = 0; i < temp.length; i++)
-            for (int j = 0; j < temp[0].length; j++)
-                temp[i][j] = in[i][j];
 
-        return temp;
-    }
 
     private static void printCellArrArr(Cell[][] array){
         for (int i = 0; i < array[0].length; i++){
@@ -27,11 +23,7 @@ public class TEST {
         System.out.print("\n");
     }
 
-    static Cell[][] test1 = new Cell[][]{
-            {new Conway_DEAD(), new Conway_ALIVE(), new Conway_DEAD()},
-            {new Conway_DEAD(), new Conway_ALIVE(), new Conway_DEAD()},
-            {new Conway_DEAD(), new Conway_ALIVE(), new Conway_DEAD()}
-    };
+    static Cell[][] test1 = RandomCellGenerator.randomArray(new Cell[]{new Conway_ALIVE(),new Conway_DEAD()},10,10);
 
 
     private static void nTurns(int n){
@@ -40,7 +32,7 @@ public class TEST {
         }
     }
     private static void turn(){
-        Cell[][] temp = copy(test1);
+        Cell[][] temp = Cell.copy(test1);
 
         for (int y = 0; y < test1.length; y++){
             for (int x = 0; x < test1[0].length; x++){

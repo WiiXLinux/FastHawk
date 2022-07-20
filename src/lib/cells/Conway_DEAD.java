@@ -2,10 +2,22 @@ package lib.cells;
 
 import lib.Cell;
 
+import java.awt.*;
+
 public final class Conway_DEAD extends ConwayCell {
     @Override
     public String name(){
         return "0";
+    }
+
+    @Override
+    public Cell clone() {
+        return new Conway_DEAD();
+    }
+
+    @Override
+    public Color getColor() {
+        return Color.WHITE;
     }
 
     @Override

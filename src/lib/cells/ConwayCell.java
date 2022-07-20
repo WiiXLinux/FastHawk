@@ -38,4 +38,5 @@ public abstract class ConwayCell extends Cell {
 
 
 
+
 }
